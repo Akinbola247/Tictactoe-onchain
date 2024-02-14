@@ -4,8 +4,9 @@
 - Multiplayer tictactoe
 
 ## todo
-Mobile responsiveness
-Read erc20 data
+- Mobile responsiveness
+- integrate Game ID from pragma
+- Read erc20 data on frontend
 
 ## how to run game:
 requirements
