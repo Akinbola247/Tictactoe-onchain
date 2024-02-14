@@ -38,3 +38,8 @@ cd client
 npm i
 npm run dev 
 ```
+
+on a separate terminal, run this script 
+```shell
+sh contracts/scripts/default_auth.sh
+```
