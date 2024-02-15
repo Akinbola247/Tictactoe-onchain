@@ -21,7 +21,7 @@ trait IExampleRandomness<TContractState> {
 
 #[starknet::contract]
 mod ExampleRandomness {
-    use pragma::{ContractAddress, IExampleRandomness};
+    use super::{ContractAddress, IExampleRandomness};
     use starknet::info::{get_block_number, get_caller_address, get_contract_address};
     use pragma::randomness::randomness::{IRandomnessDispatcher, IRandomnessDispatcherTrait};
     use array::{ArrayTrait, SpanTrait};
