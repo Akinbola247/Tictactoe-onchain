@@ -23,9 +23,9 @@ trait IExampleRandomness<TContractState> {
 mod ExampleRandomness {
     use super::{ContractAddress, IExampleRandomness};
     use starknet::info::{get_block_number, get_caller_address, get_contract_address};
-    use pragma::randomness::randomness::{IRandomnessDispatcher, IRandomnessDispatcherTrait};
+    use pragma_lib::abi::{IRandomnessDispatcher, IRandomnessDispatcherTrait};
     use array::{ArrayTrait, SpanTrait};
-    use openzeppelin::token::erc20::{ERC20, interface::{IERC20Dispatcher, IERC20DispatcherTrait}};
+    use openzeppelin::token::erc20::{interface::{IERC20Dispatcher, IERC20DispatcherTrait}};
     use traits::{TryInto, Into};
 
     #[storage]
@@ -40,7 +40,7 @@ mod ExampleRandomness {
         self.randomness_contract_address.write(randomness_contract_address);
     }
 
-    #[external(v0)]
+    #[abi(embed_v0)]
     impl IExampleRandomnessImpl of IExampleRandomness<ContractState> {
         fn get_last_random(self: @ContractState) -> felt252 {
             let last_random = self.last_random_storage.read();
@@ -70,7 +70,7 @@ mod ExampleRandomness {
             let randomness_dispatcher = IRandomnessDispatcher {
                 contract_address: randomness_contract_address
             };
-            let request_id = randomness_dispatcher
+            let _request_id = randomness_dispatcher
                 .request_random(
                     seed, callback_address, callback_fee_limit, publish_delay, num_words
                 );
