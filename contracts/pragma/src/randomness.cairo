@@ -21,9 +21,9 @@ trait IExampleRandomness<TContractState> {
 
 #[starknet::contract]
 mod ExampleRandomness {
-    use super::{ContractAddress, IExampleRandomness};
+    use pragma::{ContractAddress, IExampleRandomness};
     use starknet::info::{get_block_number, get_caller_address, get_contract_address};
-    // use pragma_lib::randomness::randomness::{IRandomnessDispatcher, IRandomnessDispatcherTrait};
+    use pragma::randomness::randomness::{IRandomnessDispatcher, IRandomnessDispatcherTrait};
     use array::{ArrayTrait, SpanTrait};
     use openzeppelin::token::erc20::{ERC20, interface::{IERC20Dispatcher, IERC20DispatcherTrait}};
     use traits::{TryInto, Into};
