@@ -1,15 +1,15 @@
-import React from 'react'
-import Tictactoe from '../../Tictactoe'
-import Layout from '../../../components/Layout'
+import React from "react";
+import Tictactoe from "../../Tictactoe";
+import Layout from "../../../components/Layout";
 
 const Gamepage = () => {
   return (
     <Layout>
-    <div className="bg-[#DDDEF1] w-[100%] h-[750px]">
-          <Tictactoe />
-    </div>
-  </Layout>
-  )
-}
+      <div className="bg-[#DDDEF1] w-[100%] md:h-screen">
+        <Tictactoe />
+      </div>
+    </Layout>
+  );
+};
 
-export default Gamepage
+export default Gamepage;

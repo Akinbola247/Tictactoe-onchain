@@ -1,17 +1,16 @@
-import React from 'react'
-import Header from './Header'
-import Footer from './Footer'
-import '../index.css';
-
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+import "../index.css";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
-            <Header />
-            {children}
-            <Footer />
+    <div className="flex flex-col justify-between">
+      <Header />
+      <body>{children}</body>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
