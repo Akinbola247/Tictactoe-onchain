@@ -63,11 +63,11 @@ const Tictactoe = () => {
 // entity id we are syncing
   const entityId = getEntityIdFromKeys([BigInt(sharedgameID ?? 0)]) as Entity;
   // const entityIdtwo : Type.BigInt = BigInt(list()[0].address)
-  const tokencontractaddress  = "0x300629f97a13bfe0575f59dd966260496e97caf3ab1944698a1773b3867845"
-  const playercontractaddress  = "0x402bde05ceac555f7dc60d7d2dcba74ce1802359bd4d7e1efde3a3975a737cd"
+  const tokencontractaddress  = "0x0300629f97a13bfe0575f59dd966260496e97caf3ab1944698a1773b3867845"
+  // const playercontractaddress  = "0x402bde05ceac555f7dc60d7d2dcba74ce1802359bd4d7e1efde3a3975a737cd"
   // const entityBalanceId = getEntityIdFromKeys([tokencontractaddress,playercontractaddress]) as Entity;
   
-  const addressentityId = getEntityIdFromKeys([BigInt(tokencontractaddress),BigInt(playercontractaddress)
+  const addressentityId = getEntityIdFromKeys([BigInt(tokencontractaddress),BigInt(account?.address)
 ]) as Entity;
 
 

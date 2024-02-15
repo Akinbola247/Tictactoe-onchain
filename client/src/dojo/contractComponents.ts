@@ -4,7 +4,7 @@ import { defineComponent, Type as RecsType, World } from "@dojoengine/recs";
 
 export function defineContractComponents(world: World) {
   return {
-  Ercaallowance: (() => {
+	  Ercaallowance: (() => {
 	    return defineComponent(
 	      world,
 	      { token: RecsType.BigInt, owner: RecsType.BigInt, spender: RecsType.BigInt, amount: RecsType.BigInt },
