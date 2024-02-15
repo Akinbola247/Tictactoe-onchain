@@ -15,18 +15,24 @@ import { useAppContext } from '../context/Appcontext';
 import { getEntityIdFromKeys } from "@dojoengine/utils";
 import { useComponentValue } from "@dojoengine/react";
 import { Entity, Type } from "@dojoengine/recs";
+import { MdContentCopy } from "react-icons/md";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 
 
-
+interface CopyButtonProps {
+  textToCopy: string;
+}
 
 const Tictactoe = () => {
     const [reg, setReg] = useState(true)
+    const [playerAddress, setPlayerAddress] = useState('');
     const {
       setup: {
-        systemCalls: { initiate, spawnavatar, registerPlayer, restart,getplayerdet,play},
+        systemCalls: { initiate, spawnavatar, registerPlayer, restart,getplayerdet,play,balance},
         components : {Moves,Board,Response,Game,Ercbalance,Gate,Players,Fixed},
       },
       account: { create, list, select, account, isDeploying, clear},
@@ -42,12 +48,29 @@ const Tictactoe = () => {
     setC3,resultdialog,setresultdialog,setwinningresult,playerone,playertwo} = useAppContext()
     
   const moves = []
+
+  const handlecopyClick = async (textToCopy : string) => {
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      console.log(textToCopy)
+      toast("Address copied");
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
   
 
 // entity id we are syncing
   const entityId = getEntityIdFromKeys([BigInt(sharedgameID ?? 0)]) as Entity;
   // const entityIdtwo : Type.BigInt = BigInt(list()[0].address)
-  // const contractaddress  = "0x300629f97a13bfe0575f59dd966260496e97caf3ab1944698a1773b3867845" as Entity
+  const tokencontractaddress  = "0x300629f97a13bfe0575f59dd966260496e97caf3ab1944698a1773b3867845"
+  const playercontractaddress  = "0x402bde05ceac555f7dc60d7d2dcba74ce1802359bd4d7e1efde3a3975a737cd"
+  // const entityBalanceId = getEntityIdFromKeys([tokencontractaddress,playercontractaddress]) as Entity;
+  
+  const addressentityId = getEntityIdFromKeys([BigInt(tokencontractaddress),BigInt(playercontractaddress)
+]) as Entity;
+
+
 
   // get current component values
   const boardstat = useComponentValue(Board, entityId);
@@ -56,10 +79,12 @@ const Tictactoe = () => {
   const response = useComponentValue(Response, entityId)
   // console.log(response)
 
-  // const ercbalance = useComponentValue(Ercbalance,contractaddress,entityIdtwo)
-  // console.log(ercbalance);
+  const ercbalance = useComponentValue(Ercbalance,addressentityId)
+  console.log('balance is here', ercbalance);
+
   
   useEffect(() => {
+    // balance(account,account?.address);
     if(boardstat?.a_1 == 88n ){
       setA1("X");
     }
@@ -137,7 +162,8 @@ const Tictactoe = () => {
       setC2(null)
       setC3(null)
     }
-  }, [boardstat,response])
+    setPlayerAddress(account?.address);
+  }, [boardstat,response,account?.address])
   
 
  
@@ -256,6 +282,7 @@ const Tictactoe = () => {
   return (
     <>
     <div className="w-[100%] h-[750px] bg-cover custom" >
+    <ToastContainer />
       {/* <Register /> */}
       {creategame && <Creategame />}
       {avatardialog && <Chooseavatar />}
@@ -271,7 +298,7 @@ const Tictactoe = () => {
 
               <div className='w-[35%] space-y-2'>
               <h1 className='text-[14px]'>Wallet</h1>
-              <p className='text-[10px]'>{(account.address).slice(0, 6)}...</p>
+              <p className='text-[10px] flex space-x-2 cursor-pointer' onClick={()=> handlecopyClick(account.address)}><MdContentCopy style={{ width: '40px', height: '15px'}} />{playerAddress.slice(0, 6)}..</p>
               </div>
 
               <div className='w-[30%] space-y-2'>

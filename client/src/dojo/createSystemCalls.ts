@@ -119,6 +119,28 @@ export function createSystemCalls(
     }
   }
 
+
+  const balance = async (signer: Account, player:string) =>{
+    try {
+      const tx = await execute(signer, "erc_systems", "balanceOf", [player]);
+      const events = 
+        getEvents(
+          await signer.waitForTransaction(tx.transaction_hash, {
+            retryInterval: 100,
+          })
+        )
+    console.log('balance event is',events)
+      console.log('tx', tx)
+      // return events[0].data[2]
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+
+
+
   const restart = async (signer: Account, gameid : string, player1 : string, player2: string) => {
     // mint
     try {
@@ -147,6 +169,7 @@ export function createSystemCalls(
     registerPlayer,
     restart,
     getplayerdet,
-    play
+    play,
+    balance
   };
 }
