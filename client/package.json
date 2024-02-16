@@ -9,7 +9,7 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "codegen": "graphql-codegen",
-    "create-components": "npx @dojoengine/core ../contracts/target/dev/manifest.json src/dojo/contractComponents.ts http://localhost:5050/ 0x13ca39fd769da93e648e5ba76781e33cd633cacd8de01dd157a339217a5022d"
+    "create-components": "npx @dojoengine/core /Users/kenzman/Desktop/winter/Sanmoku-dojo/client/src/manifest.json src/dojo/contractComponents.ts https://api.cartridge.gg/x/tictactoe/katana 0x6b79a1ed7d1a3fc08ef8586eb67cde129fba32bf10586a50a1ec9380973c580"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
@@ -17,6 +17,7 @@
     "@dojoengine/create-burner": "0.2.8",
     "@dojoengine/react": "0.2.8",
     "@dojoengine/recs": "0.1.35",
+    "@dojoengine/state": "^0.5.8",
     "@dojoengine/torii-client": "0.2.8",
     "@dojoengine/utils": "0.2.8",
     "@emotion/react": "^11.11.3",

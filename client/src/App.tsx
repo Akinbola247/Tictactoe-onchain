@@ -18,7 +18,7 @@ function App() {
   const [gaemeid, setGameID] = useState('')
 
   const client = new Client({
-    url: 'http://0.0.0.0:8080/graphql',
+    url: 'https://api.cartridge.gg/x/tictactoe/torii',
     exchanges: [cacheExchange, fetchExchange],
   });
 
