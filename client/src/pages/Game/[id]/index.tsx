@@ -5,7 +5,7 @@ import Layout from "../../../components/Layout";
 const Gamepage = () => {
   return (
     <Layout>
-      <div className="bg-[#DDDEF1] w-[100%] md:h-screen">
+      <div className="bg-[#DDDEF1] w-[100%]">
         <Tictactoe />
       </div>
     </Layout>
