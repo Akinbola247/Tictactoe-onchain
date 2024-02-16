@@ -16,18 +16,28 @@ import { getEntityIdFromKeys } from "@dojoengine/utils";
 import { useComponentValue } from "@dojoengine/react";
 import { Entity, Type } from "@dojoengine/recs";
 
-
-
-
-
-
-
 const Tictactoe = () => {
-    const [reg, setReg] = useState(true)
-    const {
-      setup: {
-        systemCalls: { initiate, spawnavatar, registerPlayer, restart,getplayerdet,play},
-        components : {Moves,Board,Response,Game,Ercbalance,Gate,Players,Fixed},
+  const [reg, setReg] = useState(true);
+  const {
+    setup: {
+      systemCalls: {
+        initiate,
+        spawnavatar,
+        registerPlayer,
+        restart,
+        getplayerdet,
+        play,
+        balance,
+      },
+      components: {
+        Moves,
+        Board,
+        Response,
+        Game,
+        Ercbalance,
+        Gate,
+        Players,
+        Fixed,
       },
     },
     account: { create, list, select, account, isDeploying, clear },
@@ -58,10 +68,15 @@ const Tictactoe = () => {
     setB3,
     setC1,
     setC2,
-    setC3,resultdialog,setresultdialog,setwinningresult,playerone,playertwo} = useAppContext()
-    
-  const moves = []
-  
+    setC3,
+    resultdialog,
+    setresultdialog,
+    setwinningresult,
+    playerone,
+    playertwo,
+  } = useAppContext();
+
+  const moves = [];
 
   // entity id we are syncing
   const entityId = getEntityIdFromKeys([BigInt(sharedgameID ?? 0)]) as Entity;
@@ -77,9 +92,9 @@ const Tictactoe = () => {
 
   // const ercbalance = useComponentValue(Ercbalance,contractaddress,entityIdtwo)
   // console.log(ercbalance);
-  
+
   useEffect(() => {
-    if(boardstat?.a_1 == 88n ){
+    if (boardstat?.a_1 == 88n) {
       setA1("X");
     }
     if (boardstat?.a_1 == 79n) {
@@ -184,13 +199,8 @@ const Tictactoe = () => {
       setC2(null);
       setC3(null);
     }
-  }, [boardstat,response])
-  
+  }, [boardstat, response]);
 
- 
-
-
-  
   const handleA1 = async () => {
     console.log(sharedavatar);
     if (sharedavatar == "X") {
@@ -297,24 +307,24 @@ const Tictactoe = () => {
 
   return (
     <>
-    <div className="w-[100%] h-[750px] bg-cover custom" >
-      {/* <Register /> */}
-      {creategame && <Creategame />}
-      {avatardialog && <Chooseavatar />}
-      {joindialog && <Joingame />}
-      {joinInputdilog && <JoinChooseavatar />}
-      {resultdialog && <Result />}
-      <div className='w-[90%] mx-auto pt-[8%] justify-end flex'>
-          <div className='press flex space-x-4 border border-[#000000]  rounded-xl w-[350px] justify-between h-[70px] p-3 items-center text-center'>
-              <div className='w-[35%] space-y-2'>
-              <h1 className='text-[14px]'>Token</h1>
-              <p className='text-[10px]'>$345,096</p>
-              </div>
+      <div className="w-[100%] h-[750px] bg-cover custom">
+        {/* <Register /> */}
+        {creategame && <Creategame />}
+        {avatardialog && <Chooseavatar />}
+        {joindialog && <Joingame />}
+        {joinInputdilog && <JoinChooseavatar />}
+        {resultdialog && <Result />}
+        <div className="w-[90%] mx-auto pt-[2%] justify-end flex">
+          <div className="press flex space-x-4 border border-[#000000]  rounded-xl w-[350px] justify-between h-[70px] p-3 items-center text-center">
+            <div className="w-[35%] space-y-2">
+              <h1 className="text-[14px]">Token</h1>
+              <p className="text-[10px]">$345,096</p>
+            </div>
 
-              <div className='w-[35%] space-y-2'>
-              <h1 className='text-[14px]'>Wallet</h1>
-              <p className='text-[10px]'>{(account.address).slice(0, 6)}...</p>
-              </div>
+            <div className="w-[35%] space-y-2">
+              <h1 className="text-[14px]">Wallet</h1>
+              <p className="text-[10px]">{account.address.slice(0, 6)}...</p>
+            </div>
 
             <div className="w-[30%] space-y-2">
               <h1 className="text-[14px]">Avatar</h1>
@@ -325,8 +335,8 @@ const Tictactoe = () => {
           </div>
         </div>
 
-        <div className="flex w-[90%] space-x-10 my-4 mx-auto p-4">
-          <div className="w-[30%] h-[80%] p-2 flex">
+        <div className="flex w-[90%] space-x-10 my-4 mx-auto mx:p-4">
+          <div className="w-[30%] h-[80%] p-2 hidden md:flex">
             <h1 className="press text-[14px] text-center">Moves</h1>
 
             <p className="nova text-[14px] text-center mt-2">
@@ -396,152 +406,187 @@ const Tictactoe = () => {
                 : null}
             </p>
           </div>
-          <div className="flex w-[100%] h-[100%] space-x-12">
-            <div className="w-[60%]">
-              <div className="flex flex-col md:flex-row justify-between">
-                <div
-                  className="h-[50px] items-center flex cursor-pointer"
-                  onClick={() => setCreategame(true)}
-                >
-                  <img src={purple} alt="purple" />
-                  <h1 className="press text-[12px]">Create Game</h1>
+          <div className="flex flex-col gap-4 w-[100%] h-[100%]">
+            <div className="flex flex-col md:flex-row gap-8">
+              <div
+                className="h-[50px] items-center flex cursor-pointer"
+                onClick={() => setCreategame(true)}
+              >
+                <img src={purple} alt="purple" />
+                <h1 className="press text-[12px]">Create Game</h1>
+              </div>
+              <div
+                className="flex h-[50px] items-center cursor-pointer"
+                onClick={() => handlerestart()}
+              >
+                <img src={yellow} alt="yellow" />
+                <h1 className="press text-[12px]">Restart Game</h1>
+              </div>
+              {/* </div> */}
+            </div>
+
+            <div className="flex flex-col-reverse md:flex-row gap-4 md:items-center md:gap-8 h-[100%] my-4 md:my-0">
+              <div className="md:w-[100%] flex flex-col border-[8px] h-[250px] md:h-[400px] border-[#FF3D00] customimage">
+                <div className="w-[90%] mt-3 flex h-[30%] mx-auto">
+                  <div
+                    className="w-[33.3%] border-r-[8px] border-b-[8px] border-b-[#555555] border-r-[#555555] h-[100%] flex items-center"
+                    id="0"
+                    onClick={handleA1}
+                  >
+                    {A1 === "X" ? (
+                      <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
+                    ) : A1 === "O" ? (
+                      <img
+                        src={zero}
+                        alt="avatar"
+                        className="w-[80%] mx-auto"
+                      />
+                    ) : null}{" "}
+                  </div>
+                  <div
+                    className="w-[33.3%] border-b-[8px] border-b-[#555555] h-[100%] flex items-center"
+                    id="1"
+                    onClick={handleA2}
+                  >
+                    {A2 === "X" ? (
+                      <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
+                    ) : A2 === "O" ? (
+                      <img
+                        src={zero}
+                        alt="avatar"
+                        className="w-[80%] mx-auto"
+                      />
+                    ) : null}
+                  </div>
+                  <div
+                    className="w-[33.3%] border-l-[8px] border-l-[#555555] border-b-[8px] border-b-[#555555]  h-[100%] flex items-center"
+                    id="2"
+                    onClick={handleA3}
+                  >
+                    {A3 === "X" ? (
+                      <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
+                    ) : A3 === "O" ? (
+                      <img
+                        src={zero}
+                        alt="avatar"
+                        className="w-[80%] mx-auto"
+                      />
+                    ) : null}
+                  </div>
                 </div>
-                <div
-                  className="flex h-[50px] items-center cursor-pointer"
-                  onClick={() => handlerestart()}
-                >
-                  <img src={yellow} alt="yellow" />
-                  <h1 className="press text-[12px]">Restart Game</h1>
+                <div className="w-[90%] flex h-[30%] mx-auto">
+                  <div
+                    className="w-[33.3%] border-r-[8px] border-b-[8px] border-b-[#555555] border-r-[#555555] h-[100%] flex items-center"
+                    id="0"
+                    onClick={handleB1}
+                  >
+                    {B1 === "X" ? (
+                      <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
+                    ) : B1 === "O" ? (
+                      <img
+                        src={zero}
+                        alt="avatar"
+                        className="w-[80%] mx-auto"
+                      />
+                    ) : null}
+                  </div>
+                  <div
+                    className="w-[33.3%] border-b-[8px] border-b-[#555555] h-[100%] flex items-center"
+                    id="1"
+                    onClick={handleB2}
+                  >
+                    {B2 === "X" ? (
+                      <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
+                    ) : B2 === "O" ? (
+                      <img
+                        src={zero}
+                        alt="avatar"
+                        className="w-[80%] mx-auto"
+                      />
+                    ) : null}
+                  </div>
+                  <div
+                    className="w-[33.3%] border-l-[8px] border-l-[#555555] border-b-[8px] border-b-[#555555]  h-[100%] flex items-center"
+                    id="2"
+                    onClick={handleB3}
+                  >
+                    {B3 === "X" ? (
+                      <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
+                    ) : B3 === "O" ? (
+                      <img
+                        src={zero}
+                        alt="avatar"
+                        className="w-[80%] mx-auto"
+                      />
+                    ) : null}
+                  </div>
+                </div>
+
+                <div className="w-[90%] flex h-[30%] mx-auto">
+                  <div
+                    className="w-[33.3%] border-r-[8px]  border-r-[#555555] h-[100%] flex items-center"
+                    id="0"
+                    onClick={handleC1}
+                  >
+                    {C1 === "X" ? (
+                      <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
+                    ) : C1 === "O" ? (
+                      <img
+                        src={zero}
+                        alt="avatar"
+                        className="w-[80%] mx-auto"
+                      />
+                    ) : null}
+                  </div>
+                  <div
+                    className="w-[33.3%]  h-[100%] flex items-center"
+                    id="1"
+                    onClick={handleC2}
+                  >
+                    {C2 === "X" ? (
+                      <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
+                    ) : C2 === "O" ? (
+                      <img
+                        src={zero}
+                        alt="avatar"
+                        className="w-[80%] mx-auto"
+                      />
+                    ) : null}
+                  </div>
+                  <div
+                    className="w-[33.3%] border-l-[8px] border-l-[#555555] h-[100%] flex items-center"
+                    id="2"
+                    onClick={handleC3}
+                  >
+                    {" "}
+                    {C3 === "X" ? (
+                      <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
+                    ) : C3 === "O" ? (
+                      <img
+                        src={zero}
+                        alt="avatar"
+                        className="w-[80%] mx-auto"
+                      />
+                    ) : null}
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
 
-        <div className="flex flex-col-reverse md:flex-row gap-4 md:items-center md:gap-8 h-[100%] px-2 my-4 md:my-0">
-          <div className="md:w-[500px] flex flex-col md:mx-auto md:h-[500px] border-[8px] h-[300px] border-[#FF3D00] customimage">
-            <div className="w-[90%] mt-3 flex h-[30%] mx-auto">
-              <div
-                className="w-[33.3%] border-r-[8px] border-b-[8px] border-b-[#555555] border-r-[#555555] h-[100%] flex items-center"
-                id="0"
-                onClick={handleA1}
-              >
-                {A1 === "X" ? (
-                  <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
-                ) : A1 === "O" ? (
-                  <img src={zero} alt="avatar" className="w-[80%] mx-auto" />
-                ) : null}{" "}
-              </div>
-              <div
-                className="w-[33.3%] border-b-[8px] border-b-[#555555] h-[100%] flex items-center"
-                id="1"
-                onClick={handleA2}
-              >
-                {A2 === "X" ? (
-                  <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
-                ) : A2 === "O" ? (
-                  <img src={zero} alt="avatar" className="w-[80%] mx-auto" />
-                ) : null}
-              </div>
-              <div
-                className="w-[33.3%] border-l-[8px] border-l-[#555555] border-b-[8px] border-b-[#555555]  h-[100%] flex items-center"
-                id="2"
-                onClick={handleA3}
-              >
-                {A3 === "X" ? (
-                  <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
-                ) : A3 === "O" ? (
-                  <img src={zero} alt="avatar" className="w-[80%] mx-auto" />
-                ) : null}
-              </div>
-            </div>
-            <div className="w-[90%] flex h-[30%] mx-auto">
-              <div
-                className="w-[33.3%] border-r-[8px] border-b-[8px] border-b-[#555555] border-r-[#555555] h-[100%] flex items-center"
-                id="0"
-                onClick={handleB1}
-              >
-                {B1 === "X" ? (
-                  <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
-                ) : B1 === "O" ? (
-                  <img src={zero} alt="avatar" className="w-[80%] mx-auto" />
-                ) : null}
-              </div>
-              <div
-                className="w-[33.3%] border-b-[8px] border-b-[#555555] h-[100%] flex items-center"
-                id="1"
-                onClick={handleB2}
-              >
-                {B2 === "X" ? (
-                  <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
-                ) : B2 === "O" ? (
-                  <img src={zero} alt="avatar" className="w-[80%] mx-auto" />
-                ) : null}
-              </div>
-              <div
-                className="w-[33.3%] border-l-[8px] border-l-[#555555] border-b-[8px] border-b-[#555555]  h-[100%] flex items-center"
-                id="2"
-                onClick={handleB3}
-              >
-                {B3 === "X" ? (
-                  <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
-                ) : B3 === "O" ? (
-                  <img src={zero} alt="avatar" className="w-[80%] mx-auto" />
-                ) : null}
-              </div>
-            </div>
-
-            <div className="w-[90%] flex h-[30%] mx-auto">
-              <div
-                className="w-[33.3%] border-r-[8px]  border-r-[#555555] h-[100%] flex items-center"
-                id="0"
-                onClick={handleC1}
-              >
-                {C1 === "X" ? (
-                  <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
-                ) : C1 === "O" ? (
-                  <img src={zero} alt="avatar" className="w-[80%] mx-auto" />
-                ) : null}
-              </div>
-              <div
-                className="w-[33.3%]  h-[100%] flex items-center"
-                id="1"
-                onClick={handleC2}
-              >
-                {C2 === "X" ? (
-                  <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
-                ) : C2 === "O" ? (
-                  <img src={zero} alt="avatar" className="w-[80%] mx-auto" />
-                ) : null}
-              </div>
-              <div
-                className="w-[33.3%] border-l-[8px] border-l-[#555555] h-[100%] flex items-center"
-                id="2"
-                onClick={handleC3}
-              >
-                {" "}
-                {C3 === "X" ? (
-                  <img src={ex} alt="avatar" className="w-[80%] mx-auto" />
-                ) : C3 === "O" ? (
-                  <img src={zero} alt="avatar" className="w-[80%] mx-auto" />
-                ) : null}
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full md:w-[30%]">
-            <div className="flex gap-4 flex-col justify-center items-center  md:justify-start">
-              <h1 className="p-1 press">Game ID: {sharedgameID}</h1>
-              <div
-                className="flex items-center  md:justify-start gap-2 cursor-pointer p-1"
-                onClick={() => setjoindialog(true)}
-              >
-                <div className="flex bg-[#FF3D00] w-[40px] h-[40px] border border-black rounded-full items-center cursor-pointer "></div>
-                <h1 className="press text-[12px]">Join Game</h1>
-              </div>
-              <div className="flex gap-2 items-center  md:justify-start">
-                <img src={blue} alt="blue" />
-                <h1 className="press text-[12px]">Change Background</h1>
+              <div className="w-[60%]">
+                <div className="flex gap-4 flex-col">
+                  <h1 className="p-1 press">Game ID: {sharedgameID}</h1>
+                  <div
+                    className="flex items-center  md:justify-start gap-2 cursor-pointer p-1"
+                    onClick={() => setjoindialog(true)}
+                  >
+                    <div className="flex bg-[#FF3D00] w-[40px] h-[40px] border border-black rounded-full items-center cursor-pointer "></div>
+                    <h1 className="press text-[12px]">Join Game</h1>
+                  </div>
+                  <div className="flex gap-2 items-center  md:justify-start">
+                    <img src={blue} alt="blue" />
+                    <h1 className="press text-[12px]">Change Background</h1>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
