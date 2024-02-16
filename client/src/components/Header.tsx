@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { connect, disconnect } from "get-starknet";
-import openIcon from "../../public/icon.png";
+import openIcon from "../assets/icon.png";
 
 const Header = () => {
   const [connection, setConnection] = useState<any>("");
@@ -22,10 +22,13 @@ const Header = () => {
       const connection = await connect();
       if (connection && connection.isConnected) {
         setConnection(connection);
+        setAccount(connection.account);
         setAddress(connection.selectedAddress);
       }
     };
-    starknetConnect();
+    if (!accounte) {
+      starknetConnect();
+    }
   }, []);
 
   const connectWallet = async () => {
@@ -33,6 +36,7 @@ const Header = () => {
 
     if (connection && connection.isConnected) {
       setConnection(connection);
+      setAccount(connection.account);
       setAddress(connection.selectedAddress);
     }
   };
@@ -181,5 +185,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// onClick={create}

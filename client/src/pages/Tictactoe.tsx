@@ -16,24 +16,22 @@ import { getEntityIdFromKeys } from "@dojoengine/utils";
 import { useComponentValue } from "@dojoengine/react";
 import { Entity, Type } from "@dojoengine/recs";
 import { MdContentCopy } from "react-icons/md";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { gql, useQuery } from 'urql';
-
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { gql, useQuery } from "urql";
 
 const TodosQuery = gql`
   query {
-    ercbalanceModels{
+    ercbalanceModels {
       edges {
         node {
           token
           account
           amount
-        } 
+        }
+      }
     }
   }
-}
 `;
 
 interface CopyButtonProps {
@@ -92,60 +90,65 @@ const Tictactoe = () => {
     setB3,
     setC1,
     setC2,
-    setC3,resultdialog,setresultdialog,setwinningresult,playerone,playertwo,tokenbalance,setTokenbalance} = useAppContext()
+    setC3,
+    resultdialog,
+    setresultdialog,
+    setwinningresult,
+    playerone,
+    playertwo,
+    tokenbalance,
+    setTokenbalance,
+  } = useAppContext();
 
-    const [result, reexecuteQuery] = useQuery({
-      query: TodosQuery,
-    });
-  
-    const { data, fetching, error } = result;
+  const [result, reexecuteQuery] = useQuery({
+    query: TodosQuery,
+  });
 
-    function processHexValue(hex: string): string {
-      let result = '';
-      for (let i = hex.length - 1; i >= 0; i--) {
-          const char = hex[i];
-          if (char != '0') {
-            result = char + result;
-          }else if (char == '0') {
-            result = '0x' + result;
-              break;
-          }
+  const { data, fetching, error } = result;
+
+  function processHexValue(hex: string): string {
+    let result = "";
+    for (let i = hex.length - 1; i >= 0; i--) {
+      const char = hex[i];
+      if (char != "0") {
+        result = char + result;
+      } else if (char == "0") {
+        result = "0x" + result;
+        break;
       }
-      return result;
-  }
-  
-
-    for (let i = 0; i < data?.ercbalanceModels?.edges?.length; i++) {
-      if(data?.ercbalanceModels?.edges[i].node.account == account?.address){
-        // console.log('this is data',data?.ercbalanceModels?.edges[i].node.account)
-        // console.log('this is amount',data?.ercbalanceModels?.edges[i].node.amount)
-        const resolvedbalance = processHexValue(data?.ercbalanceModels?.edges[i].node.amount.toString());
-        setTokenbalance(Number(resolvedbalance))
-      }else {
-        console.log('didnt find data')
-      }
-
     }
-    
+    return result;
+  }
 
+  for (let i = 0; i < data?.ercbalanceModels?.edges?.length; i++) {
+    if (data?.ercbalanceModels?.edges[i].node.account == account?.address) {
+      // console.log('this is data',data?.ercbalanceModels?.edges[i].node.account)
+      // console.log('this is amount',data?.ercbalanceModels?.edges[i].node.amount)
+      const resolvedbalance = processHexValue(
+        data?.ercbalanceModels?.edges[i].node.amount.toString()
+      );
+      setTokenbalance(Number(resolvedbalance));
+    } else {
+      console.log("didnt find data");
+    }
+  }
 
-    // const [depositresult] = useQuery({
-    //   query: GET_TOKENDEPOSIT,
-    //   variables: { contract: state.childAddress },
-    // });
+  // const [depositresult] = useQuery({
+  //   query: GET_TOKENDEPOSIT,
+  //   variables: { contract: state.childAddress },
+  // });
 
   // const moves = []
 
-  const handlecopyClick = async (textToCopy : string) => {
+  const handlecopyClick = async (textToCopy: string) => {
     try {
       await navigator.clipboard.writeText(textToCopy);
-      console.log(textToCopy)
+      console.log(textToCopy);
       toast("Address copied");
     } catch (err) {
-      console.error('Failed to copy text: ', err);
+      console.error("Failed to copy text: ", err);
     }
   };
-  
 
   // entity id we are syncing
   const entityId = getEntityIdFromKeys([BigInt(sharedgameID ?? 0)]) as Entity;
@@ -162,7 +165,6 @@ const Tictactoe = () => {
   // const ercbalance = useComponentValue(Ercbalance,addressentityId)
   // console.log('balance is here', ercbalance);
 
-  
   useEffect(() => {
     if (boardstat?.a_1 == 88n) {
       setA1("X");
@@ -377,24 +379,30 @@ const Tictactoe = () => {
 
   return (
     <>
-    <div className="w-[100%] h-[750px] bg-cover custom" >
-    <ToastContainer />
-      {/* <Register /> */}
-      {creategame && <Creategame />}
-      {avatardialog && <Chooseavatar />}
-      {joindialog && <Joingame />}
-      {joinInputdilog && <JoinChooseavatar />}
-      {resultdialog && <Result />}
-      <div className='w-[90%] mx-auto pt-[8%] justify-end flex'>
-          <div className='press flex space-x-4 border border-[#000000]  rounded-xl w-[350px] justify-between h-[70px] p-3 items-center text-center'>
-              <div className='w-[35%] space-y-2'>
-              <h1 className='text-[14px]'>Token</h1>
-              <p className='text-[10px]'>{tokenbalance ?? 'unavailable'} tic</p>
-              </div>
+      <div className="w-[100%] h-[750px] bg-cover custom">
+        <ToastContainer />
+        {/* <Register /> */}
+        {creategame && <Creategame />}
+        {avatardialog && <Chooseavatar />}
+        {joindialog && <Joingame />}
+        {joinInputdilog && <JoinChooseavatar />}
+        {resultdialog && <Result />}
+        <div className="w-[90%] mx-auto pt-[0.5em] justify-end flex">
+          <div className="press flex space-x-4 border border-[#000000]  rounded-xl w-[350px] justify-between h-[70px] p-3 items-center text-center">
+            <div className="w-[35%] space-y-2">
+              <h1 className="text-[14px]">Token</h1>
+              <p className="text-[10px]">{tokenbalance ?? "unavailable"} tic</p>
+            </div>
 
             <div className="w-[35%] space-y-2">
               <h1 className="text-[14px]">Wallet</h1>
-              <p className="text-[10px] flex cursor-pointer" onClick={()=> handlecopyClick(account.address)}><MdContentCopy style={{ width: '20px', height: '15px'}} />{account.address.slice(0, 6)}..</p>
+              <p
+                className="text-[10px] flex cursor-pointer"
+                onClick={() => handlecopyClick(account.address)}
+              >
+                <MdContentCopy style={{ width: "20px", height: "15px" }} />
+                {account.address.slice(0, 6)}..
+              </p>
             </div>
 
             <div className="w-[30%] space-y-2">
