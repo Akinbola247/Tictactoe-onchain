@@ -23,6 +23,7 @@ interface IAppContext {
   C1 : null | any;
   C2 : null | any;
   C3 : null | any;
+  tokenbalance: null | any;
   setSharedavatar: React.Dispatch<React.SetStateAction<any>>;
   setSharedgameID: React.Dispatch<React.SetStateAction<any>>;
   setCreategame: React.Dispatch<React.SetStateAction<any>>;
@@ -43,6 +44,7 @@ interface IAppContext {
   setwinningresult: React.Dispatch<React.SetStateAction<any>>;
   setplayerone: React.Dispatch<React.SetStateAction<any>>;
   setplayertwo: React.Dispatch<React.SetStateAction<any>>;
+  setTokenbalance: React.Dispatch<React.SetStateAction<any>>;
 
 }
 
@@ -67,6 +69,7 @@ const initialData: IAppContext = {
   C1 : null,
   C2 : null,
   C3 : null,
+  tokenbalance: null,
   setSharedavatar: () => {},
   setSharedgameID: () => {},
   setCreategame: () => {},
@@ -87,6 +90,7 @@ const initialData: IAppContext = {
   setwinningresult: () => {},
   setplayerone: () => {},
   setplayertwo: () => {},
+  setTokenbalance: () => {},
 };
 
 export const AppContext = createContext<IAppContext>(initialData);
@@ -120,6 +124,7 @@ const AppProvider = ({ children }: IAppProvider) => {
   const [winningresult, setwinningresult] = useState<null | any>(null);
   const [playerone, setplayerone] = useState<null | any>(null);
   const [playertwo, setplayertwo] = useState<null | any>(null);
+  const [tokenbalance, setTokenbalance] = useState<null | any>(null);
 
   const contextValue = useMemo(() => ({
     sharedavatar,
@@ -142,6 +147,7 @@ const AppProvider = ({ children }: IAppProvider) => {
     winningresult,
     playerone,
     playertwo,
+    tokenbalance,
     setSharedavatar,
     setSharedgameID,
     setCreategame,
@@ -161,8 +167,9 @@ const AppProvider = ({ children }: IAppProvider) => {
     setresultdialog,
     setwinningresult,
     setplayerone,
-    setplayertwo
-  }), [sharedavatar, sharedgameID,creategame,avatardialog,joindialog,joininput,joinInputdilog,A1,A2,A3,B1,B2,B3,C1,C2,C3,resultdialog,winningresult,playerone,playertwo]);
+    setplayertwo,
+    setTokenbalance
+  }), [sharedavatar, sharedgameID,creategame,avatardialog,joindialog,joininput,joinInputdilog,A1,A2,A3,B1,B2,B3,C1,C2,C3,resultdialog,winningresult,playerone,playertwo,tokenbalance]);
 
   return (
     <AppContext.Provider value={contextValue}>
