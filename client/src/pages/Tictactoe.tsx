@@ -510,7 +510,7 @@ const Tictactoe = () => {
                       <img
                         src={zero}
                         alt="avatar"
-                        className="w-[80%] mx-auto"
+                        className="w-[60%] mx-auto"
                       />
                     ) : null}{" "}
                   </div>
@@ -525,7 +525,7 @@ const Tictactoe = () => {
                       <img
                         src={zero}
                         alt="avatar"
-                        className="w-[80%] mx-auto"
+                        className="w-[60%] mx-auto"
                       />
                     ) : null}
                   </div>
@@ -540,7 +540,7 @@ const Tictactoe = () => {
                       <img
                         src={zero}
                         alt="avatar"
-                        className="w-[80%] mx-auto"
+                        className="w-[60%] mx-auto"
                       />
                     ) : null}
                   </div>
@@ -557,7 +557,7 @@ const Tictactoe = () => {
                       <img
                         src={zero}
                         alt="avatar"
-                        className="w-[80%] mx-auto"
+                        className="w-[60%] mx-auto"
                       />
                     ) : null}
                   </div>
@@ -572,7 +572,7 @@ const Tictactoe = () => {
                       <img
                         src={zero}
                         alt="avatar"
-                        className="w-[80%] mx-auto"
+                        className="w-[60%] mx-auto"
                       />
                     ) : null}
                   </div>
@@ -587,7 +587,7 @@ const Tictactoe = () => {
                       <img
                         src={zero}
                         alt="avatar"
-                        className="w-[80%] mx-auto"
+                        className="w-[60%] mx-auto"
                       />
                     ) : null}
                   </div>
@@ -605,7 +605,7 @@ const Tictactoe = () => {
                       <img
                         src={zero}
                         alt="avatar"
-                        className="w-[80%] mx-auto"
+                        className="w-[60%] mx-auto"
                       />
                     ) : null}
                   </div>
@@ -620,7 +620,7 @@ const Tictactoe = () => {
                       <img
                         src={zero}
                         alt="avatar"
-                        className="w-[80%] mx-auto"
+                        className="w-[60%] mx-auto"
                       />
                     ) : null}
                   </div>
@@ -636,7 +636,7 @@ const Tictactoe = () => {
                       <img
                         src={zero}
                         alt="avatar"
-                        className="w-[80%] mx-auto"
+                        className="w-[60%] mx-auto"
                       />
                     ) : null}
                   </div>
