@@ -1,17 +1,14 @@
 # TIC TAC TOE ON CHAIN
 
-## Games currently on the platform 
+## Game Features 
 - Multiplayer tictactoe
-
-## todo
-- Mobile responsiveness
-- integrate Game ID from pragma
-- Read erc20 data on frontend
+- Token dojo compatible erc20 mint to player on every Victory
+- Equivalent erc20 token to be sent to argent wallet
 
 ## how to run game:
 requirements
 - sozo cli 
-- dojo engine running 
+- dojo v 0.5.1 
 - torii 
 - katana
 
@@ -43,3 +40,6 @@ on a separate terminal, run this script
 ```shell
 sh contracts/scripts/default_auth.sh
 ```
+
+## To do
+- bug fixes
