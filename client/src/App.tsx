@@ -10,11 +10,17 @@ import './index.css';
 import Gamepage from "./pages/Game/[id]";
 import { ChakraProvider } from '@chakra-ui/react'
 import AppProvider from "./context/Appcontext";
+import { Client, Provider, cacheExchange, fetchExchange } from 'urql';
 
 
 
 function App() {
   const [gaemeid, setGameID] = useState('')
+
+  const client = new Client({
+    url: 'http://0.0.0.0:8080/graphql',
+    exchanges: [cacheExchange, fetchExchange],
+  });
 
   //USE DOJO OPTION
 
@@ -78,11 +84,13 @@ function App() {
       <div>
       <ChakraProvider>
         <AppProvider>
+        <Provider value={client}>
       <BrowserRouter>
               <Routes>
                 <Route path="/" element={<Gamepage />} />
               </Routes>
             </BrowserRouter>
+            </Provider>
         </AppProvider>
       </ChakraProvider>
       </div>
