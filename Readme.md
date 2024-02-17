@@ -1,9 +1,33 @@
 # TIC TAC TOE ON CHAIN
 
+###"Tic Tac Toe On Chain"### introduces a groundbreaking fusion of the classic game of Tic Tac Toe with the capabilities of blockchain technology. Developed on the StarkNet powered by the Dojo engine, this project offers an immersive multiplayer gaming experience coupled with real-time token rewards and seamless integration with the Argent Wallet & burner wallets. 
+
 ## Game Features 
-- Multiplayer tictactoe
-- Token dojo compatible erc20 mint to player on every Victory
-- Equivalent erc20 token to be sent to argent wallet
+- Multiplayer tictactoe: Engage in matches of Tic Tac Toe with friends and opponents from around the world. The game's multiplayer functionality allows for seamless and competitive gameplay experiences.
+- Token dojo compatible erc20 mint to player on every Victory: With every victory in Tic Tac Toe On Chain, players are rewarded with native ERC20 tokens. Leveraging the capabilities of the Dojo engine, tokens are minted and distributed to the victorious player's burner wallets in real-time, adding a dynamic layer of gamified incentives to the gameplay. These tokens can be redeemed and the equivalent of the native token is sent the a player's connected wallet address.
+- Equivalent erc20 token to be sent to argent wallet: Seamlessly send equivalent ERC20 tokens earned through victories in Tic Tac Toe On Chain to Argent Wallets. This integration offers players convenient access to their crypto rewards, further enhancing the utility and accessibility of the game's token economy.
+
+## Technologies Utilized
+Dojo Engine
+The Dojo Engine serves as the backbone of our gaming environment, managing game logic and setup seamlessly. Its robust capabilities enable smooth gameplay experiences and efficient handling of various gaming scenarios.
+
+### Argent
+Argent plays a pivotal role in our application by facilitating wallet connectivity and securely managing the receipt of ERC20 tokens. With Argent integration, users can confidently engage in transactions and manage their digital assets with ease.
+
+### Braavos
+Braavos enhances user connectivity and interaction within the TicTacToe ecosystem. It provides a seamless interface for users to engage with the game, fostering an immersive and enjoyable gaming experience.
+
+### Pragma
+Pragma's Verifiable Random Number (VRF) feature is leveraged to uniquely generate player IDs within the TicTacToe platform. By utilizing Pragma, we ensure the integrity and randomness of player identification, enhancing the fairness and security of the gaming environment.
+
+
+## What Makes Us Unique
+- Cutting-Edge Technology: Tic Tac Toe On Chain leverages StarkNet's advanced scalability and security features, combined with the powerful Dojo engine, to deliver a seamless and secure gaming experience on the blockchain.
+- Incentivized Gameplay: The integration of token rewards incentivizes active participation and fosters a vibrant gaming community. Players not only enjoy the thrill of competitive gameplay but also have the opportunity to earn tangible rewards for their skill and strategy.
+- User-Friendly Integration: With support for Argent Wallet integration, players can effortlessly manage and utilize their earned ERC20 tokens, enhancing the overall accessibility and usability of the game's token economy.
+
+
+###Tic Tac Toe On Chain### represents the pinnacle of innovation in blockchain-based gaming, offering an immersive multiplayer experience coupled with real-time token rewards and seamless integration. Whether you're a casual player looking for friendly competition or a seasoned gamer aiming to earn crypto rewards, Tic Tac Toe On Chain promises an unparalleled gaming experience on the blockchain. Challenge your friends, and start earning tokens today!
 
 ## how to run game:
 requirements
