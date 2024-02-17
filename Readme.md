@@ -1,6 +1,6 @@
 # TIC TAC TOE ON CHAIN
 
-###"Tic Tac Toe On Chain"### introduces a groundbreaking fusion of the classic game of Tic Tac Toe with the capabilities of blockchain technology. Developed on the StarkNet powered by the Dojo engine, this project offers an immersive multiplayer gaming experience coupled with real-time token rewards and seamless integration with the Argent Wallet & burner wallets. 
+"Tic Tac Toe On Chain" introduces a groundbreaking fusion of the classic game of Tic Tac Toe with the capabilities of blockchain technology. Developed on the StarkNet powered by the Dojo engine, this project offers an immersive multiplayer gaming experience coupled with real-time token rewards and seamless integration with the Argent Wallet & burner wallets. 
 
 ## Game Features 
 - Multiplayer tictactoe: Engage in matches of Tic Tac Toe with friends and opponents from around the world. The game's multiplayer functionality allows for seamless and competitive gameplay experiences.
@@ -8,7 +8,7 @@
 - Equivalent erc20 token to be sent to argent wallet: Seamlessly send equivalent ERC20 tokens earned through victories in Tic Tac Toe On Chain to Argent Wallets. This integration offers players convenient access to their crypto rewards, further enhancing the utility and accessibility of the game's token economy.
 
 ## Technologies Utilized
-Dojo Engine
+### Dojo Engine
 The Dojo Engine serves as the backbone of our gaming environment, managing game logic and setup seamlessly. Its robust capabilities enable smooth gameplay experiences and efficient handling of various gaming scenarios.
 
 ### Argent
@@ -27,7 +27,7 @@ Pragma's Verifiable Random Number (VRF) feature is leveraged to uniquely generat
 - User-Friendly Integration: With support for Argent Wallet integration, players can effortlessly manage and utilize their earned ERC20 tokens, enhancing the overall accessibility and usability of the game's token economy.
 
 
-###Tic Tac Toe On Chain### represents the pinnacle of innovation in blockchain-based gaming, offering an immersive multiplayer experience coupled with real-time token rewards and seamless integration. Whether you're a casual player looking for friendly competition or a seasoned gamer aiming to earn crypto rewards, Tic Tac Toe On Chain promises an unparalleled gaming experience on the blockchain. Challenge your friends, and start earning tokens today!
+Tic Tac Toe On Chain represents the pinnacle of innovation in blockchain-based gaming, offering an immersive multiplayer experience coupled with real-time token rewards and seamless integration. Whether you're a casual player looking for friendly competition or a seasoned gamer aiming to earn crypto rewards, Tic Tac Toe On Chain promises an unparalleled gaming experience on the blockchain. Challenge your friends, and start earning tokens today!
 
 ## how to run game:
 requirements
