@@ -53,4 +53,6 @@ Pragma's Verifiable Random Number (VRF) feature is leveraged to uniquely generat
 
 - Bug fixes
 
+## Conclusion
+
 Tic Tac Toe On Chain represents the pinnacle of innovation in blockchain-based gaming, offering an immersive multiplayer experience coupled with real-time token rewards and seamless integration. Whether you're a casual player looking for friendly competition or a seasoned gamer aiming to earn crypto rewards, Tic Tac Toe On Chain promises an unparalleled gaming experience on the blockchain. Challenge your friends, and start earning tokens today!
